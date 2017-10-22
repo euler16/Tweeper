@@ -17,10 +17,12 @@
         const {ipcRenderer} = electron;
 
         const form = document.querySelector('form');
+        const tweetBox = document.querySelector('#tweet-box');
         form.addEventListener('submit',function(e){
             e.preventDefault();
-            const message = document.querySelector('#tweet-box').value;
-            ipcRenderer.send('message:tweet',message)
+            const message = tweetBox.value;
+            ipcRenderer.send('message:tweet',message);
+            tweetBox.value = ''; // clearing input box
         })
     </script>
 </body>

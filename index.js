@@ -54,10 +54,11 @@ const mainMenuTemplate = [
 ipcMain.on('message:tweet',function(e,message){
     // console.log(message);
     var payload = {status: message};
-    client.post('status/update',payload, function(error, tweet) {
+    client.post('statuses/update',payload, function(error, tweet) {
         if (!error) {
-            console.log(tweet);
+            console.log(tweet.text);
         }
+        console.log(error);
     });
 })
 
