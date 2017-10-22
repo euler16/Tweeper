@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tweeper</title>
+</head>
+<body>
+    <h1>Tweeper</h1>
+    <form>
+        <div>
+            <label for="tweet-box">tweet</label>
+            <input type="text" id="tweet-box" autofocus>
+            <button type="submit" id="submit">Post</button>
+        </div>
+    </form>
+    <script>
+        const electron = require('electron');
+        const {ipcRenderer} = electron;
+
+        const form = document.querySelector('form');
+        const tweetBox = document.querySelector('#tweet-box');
+        form.addEventListener('submit',function(e){
+            e.preventDefault();
+            const message = tweetBox.value;
+            ipcRenderer.send('message:tweet',message);
+            tweetBox.value = ''; // clearing input box
+        })
+    </script>
+</body>
+</html>
