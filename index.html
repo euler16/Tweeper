@@ -2,16 +2,29 @@
 <html lang="en">
 <head>
     <title>Tweeper</title>
+    <script src="https://unpkg.com/vue"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 </head>
-<body>
-    <h1>Tweeper</h1>
-    <form>
-        <div>
-            <label for="tweet-box">tweet</label>
-            <input type="text" id="tweet-box" autofocus>
-            <button type="submit" id="submit">Post</button>
+<body class="blue lighten-5">
+
+    <nav class="blue"><div class="nav-wrapper"><a class="brand-logo center">Tweeper</a></div></nav>
+    <div class="content ">
+        <div class="row">
+            <form>
+                <div>
+                    <!-- <i class="material-icons prefix">mode_edit</i> -->
+                    <div style="height:20px"></div>
+                    <input type="text" id="tweet-box" autofocus placeholder="new tweet">
+                </div>
+                <center>
+                    <button type="submit" id="submit" class="waves-effect waves-light btn center">Post</button>
+                </center>
+            </form>
         </div>
-    </form>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
     <script>
         const electron = require('electron');
         const {ipcRenderer} = electron;
@@ -24,6 +37,7 @@
             ipcRenderer.send('message:tweet',message);
             tweetBox.value = ''; // clearing input box
         })
+        
     </script>
 </body>
 </html>
