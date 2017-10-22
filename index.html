@@ -5,5 +5,23 @@
 </head>
 <body>
     <h1>Tweeper</h1>
+    <form>
+        <div>
+            <label for="tweet-box">tweet</label>
+            <input type="text" id="tweet-box" autofocus>
+            <button type="submit" id="submit">Post</button>
+        </div>
+    </form>
+    <script>
+        const electron = require('electron');
+        const {ipcRenderer} = electron;
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit',function(e){
+            e.preventDefault();
+            const item = document.querySelector('#tweet-box').value;
+            ipcRenderer.send('item:')
+        })
+    </script>
 </body>
 </html>
