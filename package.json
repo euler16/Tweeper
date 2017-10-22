@@ -20,6 +20,7 @@
   "dependencies": {
     "dotenv": "^4.0.0",
     "electron": "^1.7.9",
+    "sentiment": "^4.1.0",
     "twitter": "^1.7.1"
   }
 }
